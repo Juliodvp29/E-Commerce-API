@@ -4,6 +4,9 @@ const app = express();
 const dotenv = require("dotenv");
 const userRoutes = require("./routes/user");
 const authRoutes = require("./routes/auth");
+const productRoutes = require("./routes/product");
+const orderRoutes = require("./routes/order");
+const cartRoutes = require("./routes/cart");
 
 dotenv.config();
 app.use(express.json());
@@ -17,6 +20,9 @@ mongoose
 
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/carts", cartRoutes);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log("server started at port 3000");
